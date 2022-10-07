@@ -12,9 +12,18 @@ class newsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->id) {
+            $id = $request->id;
+            $data = News::firstWhere("id",$id);
+            return Response([
+                "id" => $data->id,
+                "title" => $data->title,
+                "body" => $data->body
+            ],200);
+        }
+        return Response("Bad Request",400);
     }
 
     /**
