@@ -8,7 +8,11 @@ class homeController extends Controller
 {
     public function index()
     {
-        return view("home",["title" => "Home"]);
+        return view("home", ["title" => "Home"]);
+    }
+    public function ticket()
+    {
+        return view("ticket", ["title" => "ticket"]);
     }
     //
 }

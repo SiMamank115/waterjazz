@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [homeController::class,"index"]);
+Route::get('/ticket', [homeController::class,"ticket"]);

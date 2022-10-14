@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Water Jazz | {{$title}}</title>
-    <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/app.css") }}">
 </head>
-<body>
+<body data-barba="wrapper">
+    <div class="barba-transition"></div>
     @yield('content')
-    <script src="{{ asset("js/popper.min.js") }}"></script>
-    <script src="{{ asset("js/bootstrap.min.js") }}"></script>
+    <script src="{{ asset("js/jquery.min.js") }}"></script>
+    <script src="{{ asset("js/gsap.min.js") }}"></script>
+    <script src="{{ asset("js/barba.min.js") }}"></script>
+    <script src="{{ asset("js/app.js") }}" type="module"></script>
 </body>
 </html>
