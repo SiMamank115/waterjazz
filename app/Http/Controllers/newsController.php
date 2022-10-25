@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\news;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class newsController extends Controller
@@ -14,16 +14,21 @@ class newsController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->id) {
+        if ($request->id) {
             $id = $request->id;
-            $data = News::firstWhere("id",$id);
+            $data = News::firstWhere("id", $id);
             return Response([
                 "id" => $data->id,
                 "title" => $data->title,
                 "body" => $data->body
-            ],200);
+            ], 200);
         }
-        return Response("Bad Request",400);
+        return Response("Bad Request", 400);
+    }
+    public function panel_admin(Request $request)
+    {
+        $news = News::all();
+        return view("panel_admin", ["title" => "Admin", "news" => $news]);
     }
 
     /**
@@ -34,7 +39,20 @@ class newsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:80',
+            'description' => 'required|string',
+            'body' => 'required|string'
+        ]);
+        if ($request->file("thumbnail")) {
+            $file = $request->file("thumbnail")->store("/", ["disk" => "public_uploads"]);
+        } else {
+            $file = "/";
+        }
+        $validatedData["image_path"] = $file;
+        // ddd($validatedData);
+        News::create($validatedData);
+        return redirect("/WWWWWWWDaspaodawdksfasjdebfh/dawodjasd");
     }
 
     /**
