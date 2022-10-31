@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [homeController::class,"index"]);
 Route::get('/ticket', [homeController::class,"ticket"]);
-Route::get('/WWWWWWWDaspaodawdksfasjdebfh/dawodjasd', [newsController::class,"panel_admin"]);
+Route::get('/been/spending/most/their/life/livin/in/the/gangsta/paradise', [newsController::class,"panel_admin"]);
 Route::post("/a/b/c/d/e/f/gosave",[newsController::class,"store"]);
